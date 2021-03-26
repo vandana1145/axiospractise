@@ -71,15 +71,73 @@ document.getElementById("btn").addEventListener("click", makerequest);
 // }
 
 // Promise then | Rendering data in the browser or web-page
-function makerequest() {
-    console.log("Button Clicked")
-    axios.get('data.txt').then((response) => {
+// function makerequest() {
+//     console.log("Button Clicked")
+//     axios.get('data.txt').then((response) => {
+//         console.log(response)
+//         console.log(response.data)
+//         console.log(response.status)
+//         document.getElementById("div1").innerText = response.data
+//         document.getElementById("div2").innerText = response.status
+//     }).catch((error) => {
+//         console.log(error)
+//     })
+// }
+
+// Async and await | fetching data
+// Method1
+// async function makerequest(){
+//     console.log("Button Clicked")
+//     config = {
+//         method: 'get',
+//         url: 'data.txt'
+//     }
+//     const response = await axios(config)
+//     console.log(response)
+//     console.log(response.data)
+// } 
+
+// Method2
+// async function makerequest(){
+//     console.log("Button Clicked")
+//     config = {
+//         method: 'get'
+//     }
+//     const res = await axios('data.txt', config)
+//     console.log(res)
+//     console.log(res.status)
+//     console.log(res.statusText)
+// }
+
+
+// Async and await | Error handling
+// async function makerequest(){
+//     try {
+//         console.log("Button Clicked")
+//         const res = await axios('data1.txt')
+//         console.log(res)
+//         console.log(res.status)
+//         console.log(res.statusText)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+
+// Async and await | Rendering data in browser or webpage
+async function makerequest(){
+    try {
+        console.log("Button Clicked")
+        config = {
+            method: 'get',
+            url: 'data.txt'
+        }
+        const response = await axios(config)
         console.log(response)
-        console.log(response.data)
-        console.log(response.status)
-        document.getElementById("div1").innerText = response.data
-        document.getElementById("div2").innerText = response.status
-    }).catch((error) => {
+        document.getElementById("divdata").innerText = response.data
+        document.getElementById("div1").innerText = response.status
+        document.getElementById("div2").innerText = response.statusText
+    } catch (error) {
         console.log(error)
-    })
+    }
 }
