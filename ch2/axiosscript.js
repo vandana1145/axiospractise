@@ -61,15 +61,53 @@ document.getElementById("btn").addEventListener("click", makerequest);
 // }
 
 // Promise then | Json data rendering in the webpage or browser
-function makerequest(){
-    console.log("Button Clicked")
-    axios('data.json', {'method':'get'})
-    .then((res) => {
+// function makerequest(){
+//     console.log("Button Clicked")
+//     axios('data.json', {'method':'get'})
+//     .then((res) => {
+//         console.log(res)
+//         document.getElementById("div1").innerText = res.data.name
+//         document.getElementById("div2").innerHTML = res.data.occupation
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     })
+// }
+
+// async await | fetching json data
+// async function makerequest(){
+//     console.log("Button Clicked")
+//     config = {
+//         method: 'get',
+//         url: 'data.json'
+//     }
+//     // const res = await axios(config)
+//     // console.log(res)
+//     const response = await axios('data.json', {method: 'get'})
+//     console.log(response.data)
+// }
+
+// async await | error handling
+// async function makerequest(){
+//     try {
+//         console.log("Button Clicked")
+//         const res = await axios.get('data1.json')
+//         console.log(res)
+//         console.log(res.data.name)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+// async await | json data rendering in the web-page
+async function makerequest(){
+    try {
+        console.log("Button Clicked")
+        const res = await axios.get('data.json')
         console.log(res)
         document.getElementById("div1").innerText = res.data.name
-        document.getElementById("div2").innerHTML = res.data.occupation
-    })
-    .catch((error) => {
+        document.getElementById("div2").innerText = res.data.occupation
+    } catch (error) {
         console.log(error)
-    })
+    }
 }
