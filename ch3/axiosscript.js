@@ -128,7 +128,7 @@ document.getElementById("btn").addEventListener("click", makerequest);
 //     }
 // }
 
-// async await | multiple data rendering in browser
+//async await | multiple data rendering in browser
 async function makerequest(){
     try {
         console.log("Button Clicked!")
@@ -148,3 +148,26 @@ async function makerequest(){
         console.log(error)
     }
 }
+
+// async function makerequest(){
+//     try {
+//         console.log("Button Clicked!")
+//         const res = await axios.get('http://127.0.0.1:8000/api/categories')
+//         console.log(res)
+//         console.log(res.data)
+//         console.log(typeof(res))
+//         console.log(typeof(res.data))
+//         // data = JSON.stringify(res.data)
+//         // data = JSON.parse(data)
+//         let output = document.getElementById("alldata")
+//         // res.data.forEach(element => {
+//         //     //appending the element objects to the output div
+//         //     output.innerHTML += `
+//         //     <div>Id: ${element.id}</div>
+//         //     <div>Title: ${element.category}</div><hr>
+//         //     `
+//         // });
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
